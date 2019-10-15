@@ -6,6 +6,7 @@ import './App.css'
 const GET_BOOK_LIST = gql`
   {
     books {
+      id
       title
       author
     }
@@ -18,7 +19,7 @@ const App = () => {
   if (error) return <p>Error :(</p>
   return data.books.map(book => {
     return (
-      <div>
+      <div key={book.id}>
         <p>
           <strong>Title:</strong>
           {book.title} <strong>Author:</strong>

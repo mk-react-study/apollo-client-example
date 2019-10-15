@@ -16,6 +16,7 @@ client
     query: gql`
       {
         books {
+          id
           title
           author
         }
