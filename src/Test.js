@@ -16,7 +16,8 @@ class Test extends React.Component {
               author
             }
           }
-        `
+        `,
+        context: { saveOffline: 'Hello' }
       })
       .then(result => {
         this.setState({ book: result })

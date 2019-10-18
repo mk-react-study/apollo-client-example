@@ -1,6 +1,8 @@
-# apollo-client-example
+# Apollo Client Example
 
 - Setup : https://github.com/facebook/create-react-app
+- https://www.apollographql.com/docs/link/overview/
+- https://www.apollographql.com/docs/link/composition/
 
 ```
 npm init react-app my-app
