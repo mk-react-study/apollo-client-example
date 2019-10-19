@@ -1,24 +1,35 @@
-import React from 'react'
-import { Query } from 'react-apollo'
+import React, { Component } from 'react'
 import { gql } from 'apollo-boost'
+import apolloClient from '../../lib/apollo-client'
 
-const GET_BOOK_LIST = gql`
-  {
-    books {
-      id
-      title
-      author
-    }
+class GetBookQuery extends Component {
+  state = null
+
+  componentDidMount = () => {
+    apolloClient
+      .query({
+        query: gql`
+          {
+            books {
+              id
+              title
+              author
+            }
+          }
+        `
+      })
+      .then(result => {
+        this.setState({ book: result })
+      })
   }
-`
-const QueryGetBooks = () => {
-  return (
-    <Query query={GET_BOOK_LIST}>
-      {({ loading, error, data }) => {
-        return <div>{JSON.stringify(data)}</div>
-      }}
-    </Query>
-  )
+
+  render() {
+    let webServiceDetails = <div>Fething Data!!!!</div>
+    if (this.state) {
+      webServiceDetails = <div>{JSON.stringify(this.state)}</div>
+    }
+    return webServiceDetails
+  }
 }
 
-export default QueryGetBooks
+export default GetBookQuery
