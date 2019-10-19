@@ -1,6 +1,6 @@
 import React from 'react'
 import { gql } from 'apollo-boost'
-import apolloClient from './apollo-client'
+import apolloClient from './lib/apollo-client'
 
 class Test extends React.Component {
   state = null
